@@ -1,0 +1,446 @@
+{
+  "model_path": "C:\\hand-glove\\.venv\\Lib\\site-packages\\myosuite\\simhive\\myo_sim\\hand\\myohand.xml",
+  "model_name": "MyoHand_v0.1.7",
+  "joint_count": 23,
+  "nq": 23,
+  "nv": 23,
+  "joints": [
+    {
+      "name": "pro_sup",
+      "type": "hinge",
+      "axis": [
+        -0.01716099384176988,
+        0.9926656437815011,
+        -0.11966795705710145
+      ],
+      "range": [
+        -1.5708,
+        1.5708
+      ],
+      "qpos_address": 0,
+      "qvel_address": 0,
+      "dof": 1,
+      "default_qpos": 0.0,
+      "body": "radius",
+      "parent_body": "ulna"
+    },
+    {
+      "name": "deviation",
+      "type": "hinge",
+      "axis": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "range": [
+        -0.174533,
+        0.436332
+      ],
+      "qpos_address": 1,
+      "qvel_address": 1,
+      "dof": 1,
+      "default_qpos": 0.0,
+      "body": "lunate",
+      "parent_body": "radius"
+    },
+    {
+      "name": "flexion",
+      "type": "hinge",
+      "axis": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "range": [
+        -0.785398,
+        0.785398
+      ],
+      "qpos_address": 2,
+      "qvel_address": 2,
+      "dof": 1,
+      "default_qpos": 0.0,
+      "body": "lunate",
+      "parent_body": "radius"
+    },
+    {
+      "name": "cmc_abduction",
+      "type": "hinge",
+      "axis": [
+        -0.04239899057782176,
+        -0.66528585215587,
+        0.7453838343559777
+      ],
+      "range": [
+        -0.5,
+        0.78
+      ],
+      "qpos_address": 3,
+      "qvel_address": 3,
+      "dof": 1,
+      "default_qpos": 0.0,
+      "body": "firstmc",
+      "parent_body": "trapezium"
+    },
+    {
+      "name": "cmc_flexion",
+      "type": "hinge",
+      "axis": [
+        0.49555701495937987,
+        0.7317360220889156,
+        0.467959014126279
+      ],
+      "range": [
+        -0.78,
+        0.7
+      ],
+      "qpos_address": 4,
+      "qvel_address": 4,
+      "dof": 1,
+      "default_qpos": 0.0,
+      "body": "firstmc",
+      "parent_body": "trapezium"
+    },
+    {
+      "name": "mp_flexion",
+      "type": "hinge",
+      "axis": [
+        -0.08429499542560574,
+        -0.20348798895741932,
+        0.9754419470661809
+      ],
+      "range": [
+        -0.785398,
+        0.698132
+      ],
+      "qpos_address": 5,
+      "qvel_address": 5,
+      "dof": 1,
+      "default_qpos": 0.0,
+      "body": "proximal_thumb",
+      "parent_body": "firstmc"
+    },
+    {
+      "name": "ip_flexion",
+      "type": "hinge",
+      "axis": [
+        -0.050102005752161505,
+        -0.4796230550650465,
+        0.876043100577638
+      ],
+      "range": [
+        -1.309,
+        0.436332
+      ],
+      "qpos_address": 6,
+      "qvel_address": 6,
+      "dof": 1,
+      "default_qpos": 0.0,
+      "body": "distal_thumb",
+      "parent_body": "proximal_thumb"
+    },
+    {
+      "name": "mcp2_flexion",
+      "type": "hinge",
+      "axis": [
+        0.9950125359914347,
+        0.09974995348316616,
+        0.0
+      ],
+      "range": [
+        0.0,
+        1.5708
+      ],
+      "qpos_address": 7,
+      "qvel_address": 7,
+      "dof": 1,
+      "default_qpos": 0.0,
+      "body": "proxph2",
+      "parent_body": "secondmc"
+    },
+    {
+      "name": "mcp2_abduction",
+      "type": "hinge",
+      "axis": [
+        -0.05499898007863053,
+        0.08589896888623946,
+        0.994784639675639
+      ],
+      "range": [
+        -0.261799,
+        0.261799
+      ],
+      "qpos_address": 8,
+      "qvel_address": 8,
+      "dof": 1,
+      "default_qpos": 0.0,
+      "body": "proxph2",
+      "parent_body": "secondmc"
+    },
+    {
+      "name": "pm2_flexion",
+      "type": "hinge",
+      "axis": [
+        0.975170276468341,
+        0.09983342830355166,
+        -0.19767705604297942
+      ],
+      "range": [
+        0.0,
+        1.5708
+      ],
+      "qpos_address": 9,
+      "qvel_address": 9,
+      "dof": 1,
+      "default_qpos": 0.0,
+      "body": "midph2",
+      "parent_body": "proxph2"
+    },
+    {
+      "name": "md2_flexion",
+      "type": "hinge",
+      "axis": [
+        0.9950041652843545,
+        0.09983341658375151,
+        0.0
+      ],
+      "range": [
+        0.0,
+        1.5708
+      ],
+      "qpos_address": 10,
+      "qvel_address": 10,
+      "dof": 1,
+      "default_qpos": 0.0,
+      "body": "distph2",
+      "parent_body": "midph2"
+    },
+    {
+      "name": "mcp3_flexion",
+      "type": "hinge",
+      "axis": [
+        0.9800666589123603,
+        0.0,
+        0.19866893085825738
+      ],
+      "range": [
+        0.0,
+        1.5708
+      ],
+      "qpos_address": 11,
+      "qvel_address": 11,
+      "dof": 1,
+      "default_qpos": 0.0,
+      "body": "proxph3",
+      "parent_body": "thirdmc"
+    },
+    {
+      "name": "mcp3_abduction",
+      "type": "hinge",
+      "axis": [
+        -0.19866893085825738,
+        0.0,
+        0.9800666589123603
+      ],
+      "range": [
+        -0.261799,
+        0.261799
+      ],
+      "qpos_address": 12,
+      "qvel_address": 12,
+      "dof": 1,
+      "default_qpos": 0.0,
+      "body": "proxph3",
+      "parent_body": "thirdmc"
+    },
+    {
+      "name": "pm3_flexion",
+      "type": "hinge",
+      "axis": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "range": [
+        0.0,
+        1.5708
+      ],
+      "qpos_address": 13,
+      "qvel_address": 13,
+      "dof": 1,
+      "default_qpos": 0.0,
+      "body": "midph3",
+      "parent_body": "proxph3"
+    },
+    {
+      "name": "md3_flexion",
+      "type": "hinge",
+      "axis": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "range": [
+        0.0,
+        1.5708
+      ],
+      "qpos_address": 14,
+      "qvel_address": 14,
+      "dof": 1,
+      "default_qpos": 0.0,
+      "body": "distph3",
+      "parent_body": "midph3"
+    },
+    {
+      "name": "mcp4_flexion",
+      "type": "hinge",
+      "axis": [
+        0.9004469005163807,
+        0.0,
+        0.4349659519438768
+      ],
+      "range": [
+        0.0,
+        1.5708
+      ],
+      "qpos_address": 15,
+      "qvel_address": 15,
+      "dof": 1,
+      "default_qpos": 0.0,
+      "body": "proxph4",
+      "parent_body": "fourthmc"
+    },
+    {
+      "name": "mcp4_abduction",
+      "type": "hinge",
+      "axis": [
+        -0.4349659519438768,
+        0.0,
+        0.9004469005163807
+      ],
+      "range": [
+        -0.261799,
+        0.261799
+      ],
+      "qpos_address": 16,
+      "qvel_address": 16,
+      "dof": 1,
+      "default_qpos": 0.0,
+      "body": "proxph4",
+      "parent_body": "fourthmc"
+    },
+    {
+      "name": "pm4_flexion",
+      "type": "hinge",
+      "axis": [
+        0.9210611176908945,
+        0.0,
+        0.389418049758868
+      ],
+      "range": [
+        0.0,
+        1.5708
+      ],
+      "qpos_address": 17,
+      "qvel_address": 17,
+      "dof": 1,
+      "default_qpos": 0.0,
+      "body": "midph4",
+      "parent_body": "proxph4"
+    },
+    {
+      "name": "md4_flexion",
+      "type": "hinge",
+      "axis": [
+        0.8253359582957751,
+        0.0,
+        0.5646419714686419
+      ],
+      "range": [
+        0.0,
+        1.5708
+      ],
+      "qpos_address": 18,
+      "qvel_address": 18,
+      "dof": 1,
+      "default_qpos": 0.0,
+      "body": "distph4",
+      "parent_body": "midph4"
+    },
+    {
+      "name": "mcp5_flexion",
+      "type": "hinge",
+      "axis": [
+        0.8253359582957751,
+        0.0,
+        0.5646419714686419
+      ],
+      "range": [
+        0.0,
+        1.5708
+      ],
+      "qpos_address": 19,
+      "qvel_address": 19,
+      "dof": 1,
+      "default_qpos": 0.0,
+      "body": "proxph5",
+      "parent_body": "fifthmc"
+    },
+    {
+      "name": "mcp5_abduction",
+      "type": "hinge",
+      "axis": [
+        -0.5646419714686419,
+        0.0,
+        0.8253359582957751
+      ],
+      "range": [
+        -0.261799,
+        0.261799
+      ],
+      "qpos_address": 20,
+      "qvel_address": 20,
+      "dof": 1,
+      "default_qpos": 0.0,
+      "body": "proxph5",
+      "parent_body": "fifthmc"
+    },
+    {
+      "name": "pm5_flexion",
+      "type": "hinge",
+      "axis": [
+        0.8253359582957751,
+        0.0,
+        0.5646419714686419
+      ],
+      "range": [
+        0.0,
+        1.5708
+      ],
+      "qpos_address": 21,
+      "qvel_address": 21,
+      "dof": 1,
+      "default_qpos": 0.0,
+      "body": "midph5",
+      "parent_body": "proxph5"
+    },
+    {
+      "name": "md5_flexion",
+      "type": "hinge",
+      "axis": [
+        0.6431121484444494,
+        -0.22680405235137102,
+        0.7314141688265008
+      ],
+      "range": [
+        0.0,
+        1.5708
+      ],
+      "qpos_address": 22,
+      "qvel_address": 22,
+      "dof": 1,
+      "default_qpos": 0.0,
+      "body": "distph5",
+      "parent_body": "midph5"
+    }
+  ]
+}

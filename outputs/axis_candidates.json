@@ -1,0 +1,219 @@
+{
+  "right_finger1_distal": {
+    "status": "candidate_pca",
+    "axis": [
+      1.0,
+      -7.1147040013564086e-09,
+      1.008404696731906e-08
+    ],
+    "dominance": 0.9999999999999939,
+    "motion_range_deg": 30.195193784100383,
+    "reason": "data-derived axis; anatomical sign/name unvalidated"
+  },
+  "right_finger1_metacarpal": {
+    "status": "candidate_pca",
+    "axis": [
+      0.7098458655953238,
+      -0.3405740950641737,
+      0.6165453210173969
+    ],
+    "dominance": 0.9408391580656787,
+    "motion_range_deg": 34.65891095671565,
+    "reason": "data-derived axis; anatomical sign/name unvalidated"
+  },
+  "right_finger1_proximal": {
+    "status": "candidate_pca",
+    "axis": [
+      0.966057764955885,
+      0.09954323930764236,
+      -0.2383768828485292
+    ],
+    "dominance": 0.9949276462349841,
+    "motion_range_deg": 46.87754109122933,
+    "reason": "data-derived axis; anatomical sign/name unvalidated"
+  },
+  "right_finger1_tip": {
+    "status": "unmapped",
+    "reason": "tip/root/wrist excluded"
+  },
+  "right_finger2_distal": {
+    "status": "candidate_pca",
+    "axis": [
+      1.0,
+      -7.855741333798469e-09,
+      6.236268933295722e-09
+    ],
+    "dominance": 0.9999999999999998,
+    "motion_range_deg": 60.52871617117164,
+    "reason": "data-derived axis; anatomical sign/name unvalidated"
+  },
+  "right_finger2_medial": {
+    "status": "candidate_pca",
+    "axis": [
+      0.9999999999999999,
+      -8.632755229731364e-09,
+      5.305878396240481e-09
+    ],
+    "dominance": 0.9999999999999998,
+    "motion_range_deg": 89.28645350358076,
+    "reason": "data-derived axis; anatomical sign/name unvalidated"
+  },
+  "right_finger2_metacarpal": {
+    "status": "unmapped",
+    "dominance": 0,
+    "motion_range_deg": 0.0,
+    "reason": "insufficient motion or no dominant rotational axis"
+  },
+  "right_finger2_proximal": {
+    "status": "candidate_pca",
+    "axis": [
+      0.9779958823065034,
+      -0.045498366456391465,
+      -0.2036024382008324
+    ],
+    "dominance": 0.97390872878467,
+    "motion_range_deg": 85.75051662186952,
+    "reason": "data-derived axis; anatomical sign/name unvalidated"
+  },
+  "right_finger2_tip": {
+    "status": "unmapped",
+    "reason": "tip/root/wrist excluded"
+  },
+  "right_finger3_distal": {
+    "status": "candidate_pca",
+    "axis": [
+      1.0,
+      -5.491737030848785e-09,
+      3.971959460050372e-09
+    ],
+    "dominance": 0.9999999999999998,
+    "motion_range_deg": 61.73207480653349,
+    "reason": "data-derived axis; anatomical sign/name unvalidated"
+  },
+  "right_finger3_medial": {
+    "status": "candidate_pca",
+    "axis": [
+      1.0,
+      -5.604831601408543e-09,
+      3.550624542075673e-09
+    ],
+    "dominance": 0.9999999999999998,
+    "motion_range_deg": 90.7787467313935,
+    "reason": "data-derived axis; anatomical sign/name unvalidated"
+  },
+  "right_finger3_metacarpal": {
+    "status": "unmapped",
+    "dominance": 0,
+    "motion_range_deg": 0.0,
+    "reason": "insufficient motion or no dominant rotational axis"
+  },
+  "right_finger3_proximal": {
+    "status": "candidate_pca",
+    "axis": [
+      0.9757720042806106,
+      -0.13959646992941066,
+      -0.16846905129858963
+    ],
+    "dominance": 0.9919012810179301,
+    "motion_range_deg": 102.22261663513709,
+    "reason": "data-derived axis; anatomical sign/name unvalidated"
+  },
+  "right_finger3_tip": {
+    "status": "unmapped",
+    "reason": "tip/root/wrist excluded"
+  },
+  "right_finger4_distal": {
+    "status": "candidate_pca",
+    "axis": [
+      1.0,
+      1.946603793620236e-09,
+      -1.294063571504622e-09
+    ],
+    "dominance": 1.0,
+    "motion_range_deg": 57.849593712136304,
+    "reason": "data-derived axis; anatomical sign/name unvalidated"
+  },
+  "right_finger4_medial": {
+    "status": "candidate_pca",
+    "axis": [
+      1.0,
+      1.8005486250943564e-09,
+      -1.2610646828783085e-09
+    ],
+    "dominance": 1.0,
+    "motion_range_deg": 85.49952304946025,
+    "reason": "data-derived axis; anatomical sign/name unvalidated"
+  },
+  "right_finger4_metacarpal": {
+    "status": "unmapped",
+    "dominance": 0,
+    "motion_range_deg": 0.0,
+    "reason": "insufficient motion or no dominant rotational axis"
+  },
+  "right_finger4_proximal": {
+    "status": "candidate_pca",
+    "axis": [
+      0.992494038264525,
+      -0.08918726376576545,
+      -0.08367326927610577
+    ],
+    "dominance": 0.9979976516764926,
+    "motion_range_deg": 117.59661893143439,
+    "reason": "data-derived axis; anatomical sign/name unvalidated"
+  },
+  "right_finger4_tip": {
+    "status": "unmapped",
+    "reason": "tip/root/wrist excluded"
+  },
+  "right_finger5_distal": {
+    "status": "candidate_pca",
+    "axis": [
+      0.9999999999999998,
+      -1.1249594813075606e-08,
+      1.1488151641243512e-08
+    ],
+    "dominance": 0.9999999999999994,
+    "motion_range_deg": 60.11087981059233,
+    "reason": "data-derived axis; anatomical sign/name unvalidated"
+  },
+  "right_finger5_medial": {
+    "status": "candidate_pca",
+    "axis": [
+      0.9999999999999999,
+      -1.22627744742162e-08,
+      1.056457970236594e-08
+    ],
+    "dominance": 0.9999999999999993,
+    "motion_range_deg": 88.72131738943726,
+    "reason": "data-derived axis; anatomical sign/name unvalidated"
+  },
+  "right_finger5_metacarpal": {
+    "status": "unmapped",
+    "dominance": 0,
+    "motion_range_deg": 0.0,
+    "reason": "insufficient motion or no dominant rotational axis"
+  },
+  "right_finger5_proximal": {
+    "status": "candidate_pca",
+    "axis": [
+      0.9601343962857543,
+      -0.18209860670122052,
+      -0.21208969448435022
+    ],
+    "dominance": 0.9898261293517578,
+    "motion_range_deg": 117.8464934601471,
+    "reason": "data-derived axis; anatomical sign/name unvalidated"
+  },
+  "right_finger5_tip": {
+    "status": "unmapped",
+    "reason": "tip/root/wrist excluded"
+  },
+  "right_fore_arm": {
+    "status": "unmapped",
+    "reason": "tip/root/wrist excluded"
+  },
+  "right_hand": {
+    "status": "unmapped",
+    "reason": "tip/root/wrist excluded"
+  }
+}

@@ -1,0 +1,27 @@
+joint_name,parent_frame,local_measurement,local_frame_count,world_measurement,world_frame_count,parent_consistent,parent_alternatives
+right_finger1_distal,right_finger1_proximal,ORIENTATION,2073,TRANSFORM,2073,True,{'right_finger1_proximal': 2073}
+right_finger1_metacarpal,right_hand,ORIENTATION,2073,TRANSFORM,2073,True,{'right_hand': 2073}
+right_finger1_proximal,right_finger1_metacarpal,ORIENTATION,2073,TRANSFORM,2073,True,{'right_finger1_metacarpal': 2073}
+right_finger1_tip,right_finger1_distal,ORIENTATION,2073,TRANSFORM,2073,True,{'right_finger1_distal': 2073}
+right_finger2_distal,right_finger2_medial,ORIENTATION,2073,TRANSFORM,2073,True,{'right_finger2_medial': 2073}
+right_finger2_medial,right_finger2_proximal,ORIENTATION,2073,TRANSFORM,2073,True,{'right_finger2_proximal': 2073}
+right_finger2_metacarpal,right_hand,ORIENTATION,2073,TRANSFORM,2073,True,{'right_hand': 2073}
+right_finger2_proximal,right_finger2_metacarpal,ORIENTATION,2073,TRANSFORM,2073,True,{'right_finger2_metacarpal': 2073}
+right_finger2_tip,right_finger2_distal,ORIENTATION,2073,TRANSFORM,2073,True,{'right_finger2_distal': 2073}
+right_finger3_distal,right_finger3_medial,ORIENTATION,2073,TRANSFORM,2073,True,{'right_finger3_medial': 2073}
+right_finger3_medial,right_finger3_proximal,ORIENTATION,2073,TRANSFORM,2073,True,{'right_finger3_proximal': 2073}
+right_finger3_metacarpal,right_hand,ORIENTATION,2073,TRANSFORM,2073,True,{'right_hand': 2073}
+right_finger3_proximal,right_finger3_metacarpal,ORIENTATION,2073,TRANSFORM,2073,True,{'right_finger3_metacarpal': 2073}
+right_finger3_tip,right_finger3_distal,ORIENTATION,2073,TRANSFORM,2073,True,{'right_finger3_distal': 2073}
+right_finger4_distal,right_finger4_medial,ORIENTATION,2073,TRANSFORM,2073,True,{'right_finger4_medial': 2073}
+right_finger4_medial,right_finger4_proximal,ORIENTATION,2073,TRANSFORM,2073,True,{'right_finger4_proximal': 2073}
+right_finger4_metacarpal,right_hand,ORIENTATION,2073,TRANSFORM,2073,True,{'right_hand': 2073}
+right_finger4_proximal,right_finger4_metacarpal,ORIENTATION,2073,TRANSFORM,2073,True,{'right_finger4_metacarpal': 2073}
+right_finger4_tip,right_finger4_distal,ORIENTATION,2073,TRANSFORM,2073,True,{'right_finger4_distal': 2073}
+right_finger5_distal,right_finger5_medial,ORIENTATION,2073,TRANSFORM,2073,True,{'right_finger5_medial': 2073}
+right_finger5_medial,right_finger5_proximal,ORIENTATION,2073,TRANSFORM,2073,True,{'right_finger5_proximal': 2073}
+right_finger5_metacarpal,right_hand,ORIENTATION,2073,TRANSFORM,2073,True,{'right_hand': 2073}
+right_finger5_proximal,right_finger5_metacarpal,ORIENTATION,2073,TRANSFORM,2073,True,{'right_finger5_metacarpal': 2073}
+right_finger5_tip,right_finger5_distal,ORIENTATION,2073,TRANSFORM,2073,True,{'right_finger5_distal': 2073}
+right_fore_arm,LTP_NED,TRANSFORM,2073,TRANSFORM,2073,True,{'LTP_NED': 2073}
+right_hand,right_fore_arm,ORIENTATION,2073,TRANSFORM,2073,True,{'right_fore_arm': 2073}

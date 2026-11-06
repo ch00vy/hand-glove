@@ -1,0 +1,7 @@
+# Python 3.12; Tkinter is included in the standard Windows Python installer.
+numpy>=2.0,<2.8
+scipy>=1.14,<2
+matplotlib>=3.8,<4
+mujoco>=3.0,<4
+MyoSuite>=2.12,<3
+# rgmp_core is imported directly from the external Rokoko SDK.

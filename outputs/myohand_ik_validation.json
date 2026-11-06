@@ -1,0 +1,128 @@
+{
+  "input": "C:\\hand-glove\\recordings\\solved_hand.csv",
+  "model": "C:\\hand-glove\\.venv\\Lib\\site-packages\\myosuite\\simhive\\myo_sim\\hand\\myohand.xml",
+  "frame_count": 2073,
+  "duration_s": 24.864,
+  "stride": 4,
+  "optimized_frame_count": 519,
+  "heldout_frame_count": 1554,
+  "neutral_end_s": 0.5,
+  "registration": {
+    "proper_rotation_source_to_model": [
+      [
+        -0.9626593428485326,
+        -0.15649116984796796,
+        0.2209015694512962
+      ],
+      [
+        -0.1880702966081693,
+        0.9735246574468378,
+        -0.12992037898933326
+      ],
+      [
+        -0.19472173263440973,
+        -0.1666140903484193,
+        -0.966603947714482
+      ]
+    ],
+    "uniform_scale": 0.7789234589143765,
+    "translation_m": [
+      -0.006782246861036265,
+      -0.01286822422981479,
+      -0.008510182017290212
+    ],
+    "neutral_shape_rmse_mm": 14.025215831402278
+  },
+  "method": "hand-relative Rokoko world landmark displacements from neutral; uniform similarity registration to default myoHand; bounded finger IK; fixed wrist; linear qpos interpolation at non-optimized frames",
+  "landmark_count": 24,
+  "landmark_names": [
+    "right_finger1_metacarpal",
+    "right_finger1_proximal",
+    "right_finger1_distal",
+    "right_finger1_tip",
+    "right_finger2_metacarpal",
+    "right_finger2_proximal",
+    "right_finger2_medial",
+    "right_finger2_distal",
+    "right_finger2_tip",
+    "right_finger3_metacarpal",
+    "right_finger3_proximal",
+    "right_finger3_medial",
+    "right_finger3_distal",
+    "right_finger3_tip",
+    "right_finger4_metacarpal",
+    "right_finger4_proximal",
+    "right_finger4_medial",
+    "right_finger4_distal",
+    "right_finger4_tip",
+    "right_finger5_metacarpal",
+    "right_finger5_proximal",
+    "right_finger5_medial",
+    "right_finger5_distal",
+    "right_finger5_tip"
+  ],
+  "all_landmarks": {
+    "rmse_mm": 6.50459279319444,
+    "median_mm": 0.7820359536650839,
+    "p95_mm": 14.999250978106836,
+    "max_mm": 22.15393841247444
+  },
+  "fingertips": {
+    "rmse_mm": 8.447268321940257,
+    "median_mm": 4.406362341104731,
+    "p95_mm": 17.197472961579486,
+    "max_mm": 22.15393841247444
+  },
+  "static_open_hand_fingertips": {
+    "rmse_mm": 64.59186365204384,
+    "median_mm": 37.17762612988845,
+    "p95_mm": 109.93527796798155,
+    "max_mm": 110.95517570125604
+  },
+  "heldout_fingertips": {
+    "rmse_mm": 8.450154648679936,
+    "median_mm": 4.404738326770949,
+    "p95_mm": 17.197225294689854,
+    "max_mm": 22.15393841247444
+  },
+  "per_fingertip": {
+    "right_finger1_tip": {
+      "rmse_mm": 1.7959230433502542,
+      "median_mm": 1.9566642182590852,
+      "p95_mm": 2.8251310292208744,
+      "max_mm": 4.1284761944853
+    },
+    "right_finger2_tip": {
+      "rmse_mm": 11.157855218318796,
+      "median_mm": 11.202163680678682,
+      "p95_mm": 15.58537460156216,
+      "max_mm": 16.323052580023436
+    },
+    "right_finger3_tip": {
+      "rmse_mm": 12.464772214748143,
+      "median_mm": 10.56645131079223,
+      "p95_mm": 18.232478197956386,
+      "max_mm": 22.15393841247444
+    },
+    "right_finger4_tip": {
+      "rmse_mm": 7.673948550458142,
+      "median_mm": 7.877712184409849,
+      "p95_mm": 14.792696953891664,
+      "max_mm": 18.702076215343514
+    },
+    "right_finger5_tip": {
+      "rmse_mm": 3.846895520161738,
+      "median_mm": 4.137417149390403,
+      "p95_mm": 6.0304683094225995,
+      "max_mm": 8.680314017434727
+    }
+  },
+  "optimizer": {
+    "success_count": 519,
+    "total_count": 519,
+    "median_function_evaluations": 7.0
+  },
+  "joint_limit_near_count": 16900,
+  "joint_limit_near_fraction": 0.40762180414857696,
+  "validation_scope": "numerical/kinematic landmark fit; no independent anatomical or instrumented ground truth"
+}

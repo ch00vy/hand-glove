@@ -1,0 +1,29 @@
+{
+  "reference_body": "capitate",
+  "landmarks": [
+    {"rokoko": "right_finger1_metacarpal", "body": "firstmc"},
+    {"rokoko": "right_finger1_proximal", "body": "proximal_thumb"},
+    {"rokoko": "right_finger1_distal", "body": "distal_thumb"},
+    {"rokoko": "right_finger1_tip", "site": "THtip"},
+    {"rokoko": "right_finger2_metacarpal", "body": "secondmc"},
+    {"rokoko": "right_finger2_proximal", "body": "proxph2"},
+    {"rokoko": "right_finger2_medial", "body": "midph2"},
+    {"rokoko": "right_finger2_distal", "body": "distph2"},
+    {"rokoko": "right_finger2_tip", "site": "IFtip"},
+    {"rokoko": "right_finger3_metacarpal", "body": "thirdmc"},
+    {"rokoko": "right_finger3_proximal", "body": "proxph3"},
+    {"rokoko": "right_finger3_medial", "body": "midph3"},
+    {"rokoko": "right_finger3_distal", "body": "distph3"},
+    {"rokoko": "right_finger3_tip", "site": "MFtip"},
+    {"rokoko": "right_finger4_metacarpal", "body": "fourthmc"},
+    {"rokoko": "right_finger4_proximal", "body": "proxph4"},
+    {"rokoko": "right_finger4_medial", "body": "midph4"},
+    {"rokoko": "right_finger4_distal", "body": "distph4"},
+    {"rokoko": "right_finger4_tip", "site": "RFtip"},
+    {"rokoko": "right_finger5_metacarpal", "body": "fifthmc"},
+    {"rokoko": "right_finger5_proximal", "body": "proxph5"},
+    {"rokoko": "right_finger5_medial", "body": "midph5"},
+    {"rokoko": "right_finger5_distal", "body": "distph5"},
+    {"rokoko": "right_finger5_tip", "site": "LFtip"}
+  ]
+}

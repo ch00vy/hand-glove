@@ -1,0 +1,305 @@
+{
+  "model_path": "C:\\hand-glove\\.venv\\Lib\\site-packages\\myosuite\\simhive\\myo_sim\\hand\\myohand.xml",
+  "status": "unmapped; requires axis alignment, sign, scale, offset and kinematic validation",
+  "mappings": [
+    {
+      "rokoko_joint": null,
+      "myohand_joint": "pro_sup",
+      "axis": null,
+      "sign": null,
+      "offset": null,
+      "scale": null,
+      "joint_range": [
+        -1.5708,
+        1.5708
+      ],
+      "mapping_status": "unmapped"
+    },
+    {
+      "rokoko_joint": null,
+      "myohand_joint": "deviation",
+      "axis": null,
+      "sign": null,
+      "offset": null,
+      "scale": null,
+      "joint_range": [
+        -0.174533,
+        0.436332
+      ],
+      "mapping_status": "unmapped"
+    },
+    {
+      "rokoko_joint": null,
+      "myohand_joint": "flexion",
+      "axis": null,
+      "sign": null,
+      "offset": null,
+      "scale": null,
+      "joint_range": [
+        -0.785398,
+        0.785398
+      ],
+      "mapping_status": "unmapped"
+    },
+    {
+      "rokoko_joint": null,
+      "myohand_joint": "cmc_abduction",
+      "axis": null,
+      "sign": null,
+      "offset": null,
+      "scale": null,
+      "joint_range": [
+        -0.5,
+        0.78
+      ],
+      "mapping_status": "unmapped"
+    },
+    {
+      "rokoko_joint": null,
+      "myohand_joint": "cmc_flexion",
+      "axis": null,
+      "sign": null,
+      "offset": null,
+      "scale": null,
+      "joint_range": [
+        -0.78,
+        0.7
+      ],
+      "mapping_status": "unmapped"
+    },
+    {
+      "rokoko_joint": null,
+      "myohand_joint": "mp_flexion",
+      "axis": null,
+      "sign": null,
+      "offset": null,
+      "scale": null,
+      "joint_range": [
+        -0.785398,
+        0.698132
+      ],
+      "mapping_status": "unmapped"
+    },
+    {
+      "rokoko_joint": null,
+      "myohand_joint": "ip_flexion",
+      "axis": null,
+      "sign": null,
+      "offset": null,
+      "scale": null,
+      "joint_range": [
+        -1.309,
+        0.436332
+      ],
+      "mapping_status": "unmapped"
+    },
+    {
+      "rokoko_joint": null,
+      "myohand_joint": "mcp2_flexion",
+      "axis": null,
+      "sign": null,
+      "offset": null,
+      "scale": null,
+      "joint_range": [
+        0.0,
+        1.5708
+      ],
+      "mapping_status": "unmapped"
+    },
+    {
+      "rokoko_joint": null,
+      "myohand_joint": "mcp2_abduction",
+      "axis": null,
+      "sign": null,
+      "offset": null,
+      "scale": null,
+      "joint_range": [
+        -0.261799,
+        0.261799
+      ],
+      "mapping_status": "unmapped"
+    },
+    {
+      "rokoko_joint": null,
+      "myohand_joint": "pm2_flexion",
+      "axis": null,
+      "sign": null,
+      "offset": null,
+      "scale": null,
+      "joint_range": [
+        0.0,
+        1.5708
+      ],
+      "mapping_status": "unmapped"
+    },
+    {
+      "rokoko_joint": null,
+      "myohand_joint": "md2_flexion",
+      "axis": null,
+      "sign": null,
+      "offset": null,
+      "scale": null,
+      "joint_range": [
+        0.0,
+        1.5708
+      ],
+      "mapping_status": "unmapped"
+    },
+    {
+      "rokoko_joint": null,
+      "myohand_joint": "mcp3_flexion",
+      "axis": null,
+      "sign": null,
+      "offset": null,
+      "scale": null,
+      "joint_range": [
+        0.0,
+        1.5708
+      ],
+      "mapping_status": "unmapped"
+    },
+    {
+      "rokoko_joint": null,
+      "myohand_joint": "mcp3_abduction",
+      "axis": null,
+      "sign": null,
+      "offset": null,
+      "scale": null,
+      "joint_range": [
+        -0.261799,
+        0.261799
+      ],
+      "mapping_status": "unmapped"
+    },
+    {
+      "rokoko_joint": null,
+      "myohand_joint": "pm3_flexion",
+      "axis": null,
+      "sign": null,
+      "offset": null,
+      "scale": null,
+      "joint_range": [
+        0.0,
+        1.5708
+      ],
+      "mapping_status": "unmapped"
+    },
+    {
+      "rokoko_joint": null,
+      "myohand_joint": "md3_flexion",
+      "axis": null,
+      "sign": null,
+      "offset": null,
+      "scale": null,
+      "joint_range": [
+        0.0,
+        1.5708
+      ],
+      "mapping_status": "unmapped"
+    },
+    {
+      "rokoko_joint": null,
+      "myohand_joint": "mcp4_flexion",
+      "axis": null,
+      "sign": null,
+      "offset": null,
+      "scale": null,
+      "joint_range": [
+        0.0,
+        1.5708
+      ],
+      "mapping_status": "unmapped"
+    },
+    {
+      "rokoko_joint": null,
+      "myohand_joint": "mcp4_abduction",
+      "axis": null,
+      "sign": null,
+      "offset": null,
+      "scale": null,
+      "joint_range": [
+        -0.261799,
+        0.261799
+      ],
+      "mapping_status": "unmapped"
+    },
+    {
+      "rokoko_joint": null,
+      "myohand_joint": "pm4_flexion",
+      "axis": null,
+      "sign": null,
+      "offset": null,
+      "scale": null,
+      "joint_range": [
+        0.0,
+        1.5708
+      ],
+      "mapping_status": "unmapped"
+    },
+    {
+      "rokoko_joint": null,
+      "myohand_joint": "md4_flexion",
+      "axis": null,
+      "sign": null,
+      "offset": null,
+      "scale": null,
+      "joint_range": [
+        0.0,
+        1.5708
+      ],
+      "mapping_status": "unmapped"
+    },
+    {
+      "rokoko_joint": null,
+      "myohand_joint": "mcp5_flexion",
+      "axis": null,
+      "sign": null,
+      "offset": null,
+      "scale": null,
+      "joint_range": [
+        0.0,
+        1.5708
+      ],
+      "mapping_status": "unmapped"
+    },
+    {
+      "rokoko_joint": null,
+      "myohand_joint": "mcp5_abduction",
+      "axis": null,
+      "sign": null,
+      "offset": null,
+      "scale": null,
+      "joint_range": [
+        -0.261799,
+        0.261799
+      ],
+      "mapping_status": "unmapped"
+    },
+    {
+      "rokoko_joint": null,
+      "myohand_joint": "pm5_flexion",
+      "axis": null,
+      "sign": null,
+      "offset": null,
+      "scale": null,
+      "joint_range": [
+        0.0,
+        1.5708
+      ],
+      "mapping_status": "unmapped"
+    },
+    {
+      "rokoko_joint": null,
+      "myohand_joint": "md5_flexion",
+      "axis": null,
+      "sign": null,
+      "offset": null,
+      "scale": null,
+      "joint_range": [
+        0.0,
+        1.5708
+      ],
+      "mapping_status": "unmapped"
+    }
+  ]
+}

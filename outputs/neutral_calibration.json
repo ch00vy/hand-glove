@@ -1,0 +1,355 @@
+{
+  "convention": "xyzw; R_delta = R_neutral^-1 * R_local_current",
+  "source_group": "joints_local",
+  "interval_requested_s": [
+    0.0,
+    1.5
+  ],
+  "interval_actual_s": [
+    0.0,
+    1.5
+  ],
+  "stable_threshold_deg": 5.0,
+  "joints": {
+    "right_finger1_distal": {
+      "status": "stable",
+      "quaternion_xyzw": [
+        -0.01971357683810878,
+        1.8106971477749312e-10,
+        -6.139887769007791e-09,
+        0.99980566856177
+      ],
+      "sample_count": 126,
+      "p95_deviation_deg": 0.24739794099146195,
+      "max_deviation_deg": 0.40527550353592456,
+      "median_deviation_deg": 0.07553939241600267
+    },
+    "right_finger1_metacarpal": {
+      "status": "stable",
+      "quaternion_xyzw": [
+        0.11291901461933719,
+        -0.5937630209196593,
+        0.38875000047315655,
+        -0.6953906874972362
+      ],
+      "sample_count": 126,
+      "p95_deviation_deg": 0.5820896670828368,
+      "max_deviation_deg": 0.8101677639276111,
+      "median_deviation_deg": 0.2011813931787627
+    },
+    "right_finger1_proximal": {
+      "status": "stable",
+      "quaternion_xyzw": [
+        0.029253950698815537,
+        0.004294496844426843,
+        -0.1451579536213164,
+        -0.988966598104221
+      ],
+      "sample_count": 126,
+      "p95_deviation_deg": 0.4611807212811052,
+      "max_deviation_deg": 0.7757543260620243,
+      "median_deviation_deg": 0.18633603560073458
+    },
+    "right_finger1_tip": {
+      "status": "stable",
+      "quaternion_xyzw": [
+        2.8014185318059976e-06,
+        1.3411046517752823e-07,
+        -1.1175871605884418e-07,
+        0.9999999999960609
+      ],
+      "sample_count": 126,
+      "p95_deviation_deg": 2.5504974324272435e-14,
+      "max_deviation_deg": 2.5504974324272435e-14,
+      "median_deviation_deg": 2.5504974324272435e-14
+    },
+    "right_finger2_distal": {
+      "status": "stable",
+      "quaternion_xyzw": [
+        -0.10276403970121771,
+        -2.1936408245437633e-10,
+        1.407005188198486e-09,
+        0.9947057615919829
+      ],
+      "sample_count": 126,
+      "p95_deviation_deg": 0.2020642672446394,
+      "max_deviation_deg": 0.2910878940836304,
+      "median_deviation_deg": 0.06481913312364335
+    },
+    "right_finger2_medial": {
+      "status": "stable",
+      "quaternion_xyzw": [
+        -0.15373827258328238,
+        -3.281720450942771e-10,
+        2.104902630424944e-09,
+        0.9881116048013545
+      ],
+      "sample_count": 126,
+      "p95_deviation_deg": 0.3026998193888044,
+      "max_deviation_deg": 0.4360644397692704,
+      "median_deviation_deg": 0.09710018345188305
+    },
+    "right_finger2_metacarpal": {
+      "status": "stable",
+      "quaternion_xyzw": [
+        0.0009507028301978085,
+        0.010866583495061755,
+        -0.08715056019346076,
+        0.9961354292390366
+      ],
+      "sample_count": 126,
+      "p95_deviation_deg": 3.91332417843163e-14,
+      "max_deviation_deg": 3.91332417843163e-14,
+      "median_deviation_deg": 3.91332417843163e-14
+    },
+    "right_finger2_proximal": {
+      "status": "stable",
+      "quaternion_xyzw": [
+        0.03586341959139238,
+        -0.05301979817593183,
+        0.004838453500237942,
+        0.9979375258523558
+      ],
+      "sample_count": 126,
+      "p95_deviation_deg": 0.9463621102743728,
+      "max_deviation_deg": 1.1746041087360146,
+      "median_deviation_deg": 0.2879275453509695
+    },
+    "right_finger2_tip": {
+      "status": "stable",
+      "quaternion_xyzw": [
+        1.1920928955077617e-07,
+        -2.384185791015625e-07,
+        1.1920928955077617e-07,
+        0.9999999999999574
+      ],
+      "sample_count": 126,
+      "p95_deviation_deg": 1.164753911668785e-18,
+      "max_deviation_deg": 1.164753911668785e-18,
+      "median_deviation_deg": 1.164753911668785e-18
+    },
+    "right_finger3_distal": {
+      "status": "stable",
+      "quaternion_xyzw": [
+        -0.12121206064891371,
+        -5.890510301753693e-12,
+        3.183583316228776e-11,
+        0.9926266349203228
+      ],
+      "sample_count": 126,
+      "p95_deviation_deg": 0.16301877473784815,
+      "max_deviation_deg": 0.21876310315281428,
+      "median_deviation_deg": 0.06845714894750773
+    },
+    "right_finger3_medial": {
+      "status": "stable",
+      "quaternion_xyzw": [
+        -0.18114839033399296,
+        -8.803180406857791e-12,
+        4.7576331161813576e-11,
+        0.9834557746433763
+      ],
+      "sample_count": 126,
+      "p95_deviation_deg": 0.24407382232629776,
+      "max_deviation_deg": 0.327547017525654,
+      "median_deviation_deg": 0.10249666860406034
+    },
+    "right_finger3_metacarpal": {
+      "status": "stable",
+      "quaternion_xyzw": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "sample_count": 126,
+      "p95_deviation_deg": 0.0,
+      "max_deviation_deg": 0.0,
+      "median_deviation_deg": 0.0
+    },
+    "right_finger3_proximal": {
+      "status": "stable",
+      "quaternion_xyzw": [
+        0.08425328162258627,
+        -0.10347422370052983,
+        0.1259415246143366,
+        0.9830224829286532
+      ],
+      "sample_count": 126,
+      "p95_deviation_deg": 0.8300593463381324,
+      "max_deviation_deg": 1.103243942558602,
+      "median_deviation_deg": 0.25703680842095533
+    },
+    "right_finger3_tip": {
+      "status": "stable",
+      "quaternion_xyzw": [
+        3.427267358801822e-07,
+        -2.980232594040899e-08,
+        1.0430814256778136e-07,
+        0.9999999999999353
+      ],
+      "sample_count": 126,
+      "p95_deviation_deg": 2.5953478344535017e-19,
+      "max_deviation_deg": 2.5953478344535017e-19,
+      "median_deviation_deg": 2.5953478344535017e-19
+    },
+    "right_finger4_distal": {
+      "status": "stable",
+      "quaternion_xyzw": [
+        -0.10035854211130404,
+        -5.518430157280818e-11,
+        3.6349311444566437e-10,
+        0.994951337013672
+      ],
+      "sample_count": 126,
+      "p95_deviation_deg": 0.20231419290768154,
+      "max_deviation_deg": 0.2679546975617201,
+      "median_deviation_deg": 0.05775593500253663
+    },
+    "right_finger4_medial": {
+      "status": "stable",
+      "quaternion_xyzw": [
+        -0.15015803319847296,
+        -8.256761940828028e-11,
+        5.438654692151886e-10,
+        0.9886620074959726
+      ],
+      "sample_count": 126,
+      "p95_deviation_deg": 0.303093201479377,
+      "max_deviation_deg": 0.4014348359075857,
+      "median_deviation_deg": 0.08652291593602657
+    },
+    "right_finger4_metacarpal": {
+      "status": "stable",
+      "quaternion_xyzw": [
+        0.024236438541813825,
+        0.02172440640202833,
+        -0.08769536671484215,
+        -0.9956154718916527
+      ],
+      "sample_count": 126,
+      "p95_deviation_deg": 1.6408716516787112e-14,
+      "max_deviation_deg": 1.6408716516787112e-14,
+      "median_deviation_deg": 1.6408716516787112e-14
+    },
+    "right_finger4_proximal": {
+      "status": "stable",
+      "quaternion_xyzw": [
+        0.14628709319052127,
+        -0.040002753455676165,
+        0.12711510336576012,
+        0.9802252886852818
+      ],
+      "sample_count": 126,
+      "p95_deviation_deg": 1.099991418888016,
+      "max_deviation_deg": 1.3126117243320188,
+      "median_deviation_deg": 0.32916978191720836
+    },
+    "right_finger4_tip": {
+      "status": "stable",
+      "quaternion_xyzw": [
+        1.1920928955078034e-07,
+        -1.490116141589226e-08,
+        -1.4901161193847549e-08,
+        0.9999999999999928
+      ],
+      "sample_count": 126,
+      "p95_deviation_deg": 2.5444449774138117e-14,
+      "max_deviation_deg": 2.5444449774138117e-14,
+      "median_deviation_deg": 2.5444449774138117e-14
+    },
+    "right_finger5_distal": {
+      "status": "stable",
+      "quaternion_xyzw": [
+        -0.06843163136188693,
+        -1.6958034976255476e-10,
+        1.642704038690468e-09,
+        0.9976558082972057
+      ],
+      "sample_count": 126,
+      "p95_deviation_deg": 0.2706997602507783,
+      "max_deviation_deg": 0.4121211454355748,
+      "median_deviation_deg": 0.10673250714431866
+    },
+    "right_finger5_medial": {
+      "status": "stable",
+      "quaternion_xyzw": [
+        -0.10252714745238856,
+        -2.540712085163932e-10,
+        2.4611615677695306e-09,
+        0.9947302066566973
+      ],
+      "sample_count": 126,
+      "p95_deviation_deg": 0.40581756047153345,
+      "max_deviation_deg": 0.6178355386115486,
+      "median_deviation_deg": 0.16000393928571982
+    },
+    "right_finger5_metacarpal": {
+      "status": "stable",
+      "quaternion_xyzw": [
+        0.0531114754859402,
+        0.04287576345259936,
+        -0.17602421517290454,
+        -0.9820164539114539
+      ],
+      "sample_count": 126,
+      "p95_deviation_deg": 1.1433527467312953e-13,
+      "max_deviation_deg": 1.1433527467312953e-13,
+      "median_deviation_deg": 1.1433527467312953e-13
+    },
+    "right_finger5_proximal": {
+      "status": "stable",
+      "quaternion_xyzw": [
+        0.2509651952556208,
+        -0.13992940961551836,
+        0.12593757622779989,
+        0.949513537549006
+      ],
+      "sample_count": 126,
+      "p95_deviation_deg": 1.214785177298634,
+      "max_deviation_deg": 1.7563369533710333,
+      "median_deviation_deg": 0.37285781691988507
+    },
+    "right_finger5_tip": {
+      "status": "stable",
+      "quaternion_xyzw": [
+        2.980232594040895e-08,
+        2.9802325718364386e-08,
+        -2.9802325940408945e-08,
+        0.9999999999999986
+      ],
+      "sample_count": 126,
+      "p95_deviation_deg": 2.5444432143584875e-14,
+      "max_deviation_deg": 2.5444432143584875e-14,
+      "median_deviation_deg": 2.5444432143584875e-14
+    },
+    "right_fore_arm": {
+      "status": "stable",
+      "quaternion_xyzw": [
+        0.25011023332488286,
+        -0.6770810794690496,
+        0.1960271031432527,
+        0.663761597144987
+      ],
+      "sample_count": 126,
+      "p95_deviation_deg": 1.504690597354374,
+      "max_deviation_deg": 1.533791600321669,
+      "median_deviation_deg": 0.48135517358580904
+    },
+    "right_hand": {
+      "status": "stable",
+      "quaternion_xyzw": [
+        -0.06834880832872532,
+        -0.07229377281207716,
+        -0.17306465591103673,
+        0.9798727854609668
+      ],
+      "sample_count": 126,
+      "p95_deviation_deg": 1.620749214091799,
+      "max_deviation_deg": 1.6879457009928887,
+      "median_deviation_deg": 0.5484693737835935
+    }
+  },
+  "stable_joint_count": 26,
+  "overall_status": "stable"
+}

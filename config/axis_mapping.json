@@ -1,0 +1,4 @@
+{
+  "convention": "R_delta = R_neutral^-1 * R_current; axes expressed in each joint's local neutral frame; twist flexion then residual abduction",
+  "joints": {}
+}

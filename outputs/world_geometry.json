@@ -1,0 +1,51 @@
+{
+  "reference": "right_hand world position; Euclidean distances in model units (SDK uses meters)",
+  "world_frame": "LTP_NED",
+  "fingertips": {
+    "right_finger1_tip": {
+      "initial_m": 0.1317286439895624,
+      "minimum_m": 0.09443479012255537,
+      "final_m": 0.13262754189725084,
+      "maximum_contraction_m": 0.03729385386700704,
+      "final_minus_initial_m": 0.000898897907688434,
+      "initial_stability_std_m": 4.87555852338307e-05,
+      "missing_samples": 0
+    },
+    "right_finger2_tip": {
+      "initial_m": 0.18313488851297066,
+      "minimum_m": 0.06231167875260176,
+      "final_m": 0.1851769340488542,
+      "maximum_contraction_m": 0.1208232097603689,
+      "final_minus_initial_m": 0.002042045535883552,
+      "initial_stability_std_m": 3.794556412693562e-05,
+      "missing_samples": 0
+    },
+    "right_finger3_tip": {
+      "initial_m": 0.18407649430290257,
+      "minimum_m": 0.05096237318546697,
+      "final_m": 0.18610167886514073,
+      "maximum_contraction_m": 0.1331141211174356,
+      "final_minus_initial_m": 0.002025184562238158,
+      "initial_stability_std_m": 8.876492550123258e-05,
+      "missing_samples": 0
+    },
+    "right_finger4_tip": {
+      "initial_m": 0.17562588124445855,
+      "minimum_m": 0.043126978230236486,
+      "final_m": 0.17647204048332765,
+      "maximum_contraction_m": 0.13249890301422207,
+      "final_minus_initial_m": 0.0008461592388691042,
+      "initial_stability_std_m": 0.00012103398317676738,
+      "missing_samples": 0
+    },
+    "right_finger5_tip": {
+      "initial_m": 0.15404544801303333,
+      "minimum_m": 0.05100835363122229,
+      "final_m": 0.15433305044335388,
+      "maximum_contraction_m": 0.10303709438181104,
+      "final_minus_initial_m": 0.0002876024303205549,
+      "initial_stability_std_m": 0.0001444990956692355,
+      "missing_samples": 0
+    }
+  }
+}

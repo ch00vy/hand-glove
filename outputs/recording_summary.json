@@ -1,0 +1,286 @@
+{
+  "frame_count": 2073,
+  "duration_s": 24.864,
+  "timestamp_unit": "microseconds",
+  "interval_us": {
+    "min": 12000,
+    "median": 12000.0,
+    "p95": 12000.0,
+    "max": 12000,
+    "mean": 12000.0
+  },
+  "nominal_hz_from_median": 83.33333333333333,
+  "large_timestamp_gap_count": 0,
+  "estimated_missing_timestamps": 0,
+  "joint_count": 26,
+  "groups": {
+    "joints_local": {
+      "joint_count": 26,
+      "missing_measurements": 0,
+      "incomplete_frames": 0
+    },
+    "joints_world": {
+      "joint_count": 26,
+      "missing_measurements": 0,
+      "incomplete_frames": 0
+    }
+  },
+  "joints": [
+    "right_finger1_distal",
+    "right_finger1_metacarpal",
+    "right_finger1_proximal",
+    "right_finger1_tip",
+    "right_finger2_distal",
+    "right_finger2_medial",
+    "right_finger2_metacarpal",
+    "right_finger2_proximal",
+    "right_finger2_tip",
+    "right_finger3_distal",
+    "right_finger3_medial",
+    "right_finger3_metacarpal",
+    "right_finger3_proximal",
+    "right_finger3_tip",
+    "right_finger4_distal",
+    "right_finger4_medial",
+    "right_finger4_metacarpal",
+    "right_finger4_proximal",
+    "right_finger4_tip",
+    "right_finger5_distal",
+    "right_finger5_medial",
+    "right_finger5_metacarpal",
+    "right_finger5_proximal",
+    "right_finger5_tip",
+    "right_fore_arm",
+    "right_hand"
+  ],
+  "invalid_rows": 0,
+  "invalid_examples": [],
+  "out_of_order_rows": 0,
+  "duplicate_rows": 0,
+  "total_rows": 107796,
+  "hierarchy": {
+    "right_finger1_distal": {
+      "parent": "right_finger1_proximal",
+      "observations": 2073,
+      "consistent": true,
+      "alternatives": {
+        "right_finger1_proximal": 2073
+      }
+    },
+    "right_finger1_metacarpal": {
+      "parent": "right_hand",
+      "observations": 2073,
+      "consistent": true,
+      "alternatives": {
+        "right_hand": 2073
+      }
+    },
+    "right_finger1_proximal": {
+      "parent": "right_finger1_metacarpal",
+      "observations": 2073,
+      "consistent": true,
+      "alternatives": {
+        "right_finger1_metacarpal": 2073
+      }
+    },
+    "right_finger1_tip": {
+      "parent": "right_finger1_distal",
+      "observations": 2073,
+      "consistent": true,
+      "alternatives": {
+        "right_finger1_distal": 2073
+      }
+    },
+    "right_finger2_distal": {
+      "parent": "right_finger2_medial",
+      "observations": 2073,
+      "consistent": true,
+      "alternatives": {
+        "right_finger2_medial": 2073
+      }
+    },
+    "right_finger2_medial": {
+      "parent": "right_finger2_proximal",
+      "observations": 2073,
+      "consistent": true,
+      "alternatives": {
+        "right_finger2_proximal": 2073
+      }
+    },
+    "right_finger2_metacarpal": {
+      "parent": "right_hand",
+      "observations": 2073,
+      "consistent": true,
+      "alternatives": {
+        "right_hand": 2073
+      }
+    },
+    "right_finger2_proximal": {
+      "parent": "right_finger2_metacarpal",
+      "observations": 2073,
+      "consistent": true,
+      "alternatives": {
+        "right_finger2_metacarpal": 2073
+      }
+    },
+    "right_finger2_tip": {
+      "parent": "right_finger2_distal",
+      "observations": 2073,
+      "consistent": true,
+      "alternatives": {
+        "right_finger2_distal": 2073
+      }
+    },
+    "right_finger3_distal": {
+      "parent": "right_finger3_medial",
+      "observations": 2073,
+      "consistent": true,
+      "alternatives": {
+        "right_finger3_medial": 2073
+      }
+    },
+    "right_finger3_medial": {
+      "parent": "right_finger3_proximal",
+      "observations": 2073,
+      "consistent": true,
+      "alternatives": {
+        "right_finger3_proximal": 2073
+      }
+    },
+    "right_finger3_metacarpal": {
+      "parent": "right_hand",
+      "observations": 2073,
+      "consistent": true,
+      "alternatives": {
+        "right_hand": 2073
+      }
+    },
+    "right_finger3_proximal": {
+      "parent": "right_finger3_metacarpal",
+      "observations": 2073,
+      "consistent": true,
+      "alternatives": {
+        "right_finger3_metacarpal": 2073
+      }
+    },
+    "right_finger3_tip": {
+      "parent": "right_finger3_distal",
+      "observations": 2073,
+      "consistent": true,
+      "alternatives": {
+        "right_finger3_distal": 2073
+      }
+    },
+    "right_finger4_distal": {
+      "parent": "right_finger4_medial",
+      "observations": 2073,
+      "consistent": true,
+      "alternatives": {
+        "right_finger4_medial": 2073
+      }
+    },
+    "right_finger4_medial": {
+      "parent": "right_finger4_proximal",
+      "observations": 2073,
+      "consistent": true,
+      "alternatives": {
+        "right_finger4_proximal": 2073
+      }
+    },
+    "right_finger4_metacarpal": {
+      "parent": "right_hand",
+      "observations": 2073,
+      "consistent": true,
+      "alternatives": {
+        "right_hand": 2073
+      }
+    },
+    "right_finger4_proximal": {
+      "parent": "right_finger4_metacarpal",
+      "observations": 2073,
+      "consistent": true,
+      "alternatives": {
+        "right_finger4_metacarpal": 2073
+      }
+    },
+    "right_finger4_tip": {
+      "parent": "right_finger4_distal",
+      "observations": 2073,
+      "consistent": true,
+      "alternatives": {
+        "right_finger4_distal": 2073
+      }
+    },
+    "right_finger5_distal": {
+      "parent": "right_finger5_medial",
+      "observations": 2073,
+      "consistent": true,
+      "alternatives": {
+        "right_finger5_medial": 2073
+      }
+    },
+    "right_finger5_medial": {
+      "parent": "right_finger5_proximal",
+      "observations": 2073,
+      "consistent": true,
+      "alternatives": {
+        "right_finger5_proximal": 2073
+      }
+    },
+    "right_finger5_metacarpal": {
+      "parent": "right_hand",
+      "observations": 2073,
+      "consistent": true,
+      "alternatives": {
+        "right_hand": 2073
+      }
+    },
+    "right_finger5_proximal": {
+      "parent": "right_finger5_metacarpal",
+      "observations": 2073,
+      "consistent": true,
+      "alternatives": {
+        "right_finger5_metacarpal": 2073
+      }
+    },
+    "right_finger5_tip": {
+      "parent": "right_finger5_distal",
+      "observations": 2073,
+      "consistent": true,
+      "alternatives": {
+        "right_finger5_distal": 2073
+      }
+    },
+    "right_fore_arm": {
+      "parent": "LTP_NED",
+      "observations": 2073,
+      "consistent": true,
+      "alternatives": {
+        "LTP_NED": 2073
+      }
+    },
+    "right_hand": {
+      "parent": "right_fore_arm",
+      "observations": 2073,
+      "consistent": true,
+      "alternatives": {
+        "right_fore_arm": 2073
+      }
+    }
+  },
+  "candidate_axis_count": 15,
+  "configured_axis_count": 0,
+  "calibration_status": "stable",
+  "plots": [
+    "fingertip_distances.png",
+    "orientation_change.png",
+    "candidate_flexion.png",
+    "first_last_pose.png"
+  ],
+  "myohand": {
+    "model_path": "C:\\hand-glove\\.venv\\Lib\\site-packages\\myosuite\\simhive\\myo_sim\\hand\\myohand.xml",
+    "joint_count": 23,
+    "validated_mappings": 0,
+    "retargeted_frames": 0
+  }
+}
