@@ -121,3 +121,25 @@ Output baru di `outputs/`:
 - `myohand_ik_error.png` dan `myohand_tip_comparison.png`: galat ujung jari dan perbandingan jarak ujung jari target versus model sepanjang rekaman.
 
 Galat IK mengukur kecocokan terhadap target **yang telah diregistrasi dan diskalakan**, bukan terhadap posisi absolut sensor di ruang LTP_NED. Perbedaan bentuk netral dan banyaknya joint yang menyentuh batas dapat membatasi akurasi. Kecocokan numerik belum menjadi validasi anatomis atau bukti bahwa model meniru gaya genggaman, kontak objek, atau aktivitas otot. Periksa laporan galat sebelum menyebut reproduksi akurat untuk tujuan penelitian.
+
+## Retargeting kinematik real-time (port 12277)
+
+Jalankan Hand Solver secara manual di terminal terpisah dan pastikan `joints_world` dikirim di port 12277. Saat memulai client, **tahan tangan kanan terbuka dan stabil** selama sekitar 0,5 detik untuk registrasi netral. Dari terminal proyek:
+
+```powershell
+.\.venv\Scripts\python.exe real_time\run_retargeting.py --host 127.0.0.1 --port 12277
+```
+
+MuJoCo viewer akan menampilkan pose `qpos` hasil IK secara langsung. Tutup viewer atau tekan Ctrl+C di terminal untuk mengakhiri client. Proses SDK Driver, Hand Solver, dan koneksi Wi-Fi tidak dihentikan. Jika ada lebih dari satu perangkat pada server RGMP, tentukan `--device-id ID`. Untuk pemeriksaan tanpa jendela, gunakan `--headless --duration 10`; perintah ini mengembalikan status gagal jika tidak ada frame world yang berhasil diproses. Semua pilihan tersedia lewat `--help`.
+
+Pipeline real-time berada di `real_time/`. Callback RGMP resmi hanya memasukkan data ke antrean berukuran satu; worker lain mem-parsing `joints_world`, mengkalibrasi pose netral, dan menjalankan IK. Frame lama dibuang bila input lebih cepat daripada IK agar latensi tidak terus bertambah. Viewer menggunakan pose terbaru di thread utama. Status setiap detik di terminal menampilkan jumlah frame world, frame yang di-fit, frame yang dibuang, data tidak valid, usia frame terakhir, galat fingertip, dan latensi pemrosesan. `Connected` pada RGMP sendiri belum berarti retargeting aktif; tunggu pesan `Kalibrasi netral selesai; retargeting aktif`.
+
+Kalibrasi live menghitung posisi 24 landmark relatif terhadap `right_hand`, lalu menunggu jendela 0,5 detik dengan deviasi posisi p95 di bawah 5 mm. Pose yang stabil tetapi **tertutup** masih dapat diterima oleh detektor; operator harus memastikan tangan terbuka. Titik world diregistrasi ke model myoHand memakai metode yang sama dengan analisis offline. Pergelangan tetap pada pose default model dan tidak ada estimasi kontak, gaya, atau aktivasi otot. Bila `joints_world` berhenti tiba, model menahan pose terakhir sampai data baru atau koneksi ditutup.
+
+Parameter `--max-ik-evaluations` (default 12), `--viewer-fps` (default 30), `--neutral-window`, `--stability-mm`, dan `--tip-weight` dapat disesuaikan. Menaikkan iterasi dapat memperbaiki fit tetapi menambah latensi dan jumlah frame yang dibuang. Kinerja nyata bergantung pada CPU, laju SDK, dan viewer. Dalam replay rekaman sekitar 83 Hz pada lingkungan ini, kalibrasi berhasil, IK menyelesaikan 117 dari 155 frame yang diterima (frame awal untuk kalibrasi), 5 frame lama dibuang, dan contoh latensi terakhir sekitar 16 ms. Ini bukan pengukuran pada perangkat langsung.
+
+Pengujian tanpa Smartgloves menggunakan server TCP RGMP v2 sintetis dan model MyoSuite yang terpasang:
+
+```powershell
+.\.venv\Scripts\python.exe -m unittest real_time.test_pipeline -v
+```
