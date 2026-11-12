@@ -17,3 +17,5 @@ __pycache__/
 
 # Temporary files
 *.log
+# Local Control Center settings
+.rokoko_myohand_gui.json

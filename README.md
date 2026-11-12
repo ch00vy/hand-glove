@@ -1,60 +1,59 @@
-# Smartgloves Connector
+# Rokoko Smartgloves / MyoHand Control Center
 
-GUI Tkinter sederhana untuk membaca stream TCP **RGMP v2**. Aplikasi tidak menjalankan atau menghentikan SDK Driver, Hand Solver, maupun koneksi Wi-Fi Smartgloves.
+GUI Tkinter Windows memakai tampilan dan kontrol dari ZIP Control Center: konfigurasi Wi-Fi, pengaturan lokasi SDK/project dan port, tombol Start/Stop Driver, Solver, Viewer, serta log proses.
 
-## Menjalankan (PowerShell)
-
-Python 3.12 dengan Tcl/Tk diperlukan. `.venv` proyek yang sudah tersedia telah diperiksa menggunakan Python 3.12.1. GUI RGMP memakai standard library; analisis offline membutuhkan paket pada `requirements.txt`.
+## Menjalankan
 
 ```powershell
 cd C:\hand-glove
 .\.venv\Scripts\python.exe main.py
 ```
 
-Interpreter Python 3.12 sistem juga dapat digunakan:
+`rokoko_control_gui.py` juga dapat dijalankan langsung dengan interpreter yang sama. SDK menggunakan `ROKOKO_SDK_HOME` atau fallback `%LOCALAPPDATA%\Rokoko Device SDK`; lokasinya dapat diedit di GUI. Viewer memakai `.venv` dari folder project yang dipilih.
+
+## Wi-Fi dan password SDK terpasang
+
+Sudah diperiksa menggunakan SDK lokal:
 
 ```powershell
-py -3.12 main.py
+.\.venv\Scripts\python.exe -B "$env:LOCALAPPDATA\Rokoko Device SDK\examples\python\network_configuration.py" set --help
 ```
 
-Tidak perlu membuat ulang `.venv` atau menjalankan `install-device-sdk.ps1`.
+Versi ini **tidak memiliki argumen `--password`**. Opsi `set` adalah `--ssid`, `--receiver-address`, `--receiver-port`, dan `--security`. Script meminta password melalui `getpass.getpass()` untuk WPA2/WPA3.
 
-## Lokasi SDK eksternal
+GUI memakai `sdk_network_runner.py` untuk menjalankan script SDK asli dengan password dari stdin dan memasoknya ke prompt `getpass`. Password tidak masuk argumen proses, JSON, maupun log GUI; SDK tidak dimodifikasi. GUI menyediakan WPA2 sesuai ZIP. Password wajib diisi saat Set Wi-Fi.
 
-`config.py` membaca `ROKOKO_SDK_HOME`, dengan fallback `%LOCALAPPDATA%\Rokoko Device SDK` (umumnya `C:\Users\Lenovo\AppData\Local\Rokoko Device SDK`). Jika instalasi berbeda, atur sebelum menjalankan aplikasi:
+Tombol **Save** menyimpan SSID, lokasi, dan port di `.rokoko_myohand_gui.json` dalam folder aplikasi. Jika paket opsional `keyring` tersedia, password disimpan melalui Windows Credential Manager. Tanpa paket itu, password hanya bertahan selama aplikasi terbuka. Untuk mengaktifkan penyimpanan password:
 
 ```powershell
-$env:ROKOKO_SDK_HOME = 'C:\Users\Lenovo\AppData\Local\Rokoko Device SDK'
-.\.venv\Scripts\python.exe main.py
+.\.venv\Scripts\python.exe -m pip install keyring
 ```
 
-Adaptor mengimpor `examples\python\rgmp_core` langsung dari instalasi itu. SDK tidak disalin atau dimodifikasi; penulisan bytecode SDK dinonaktifkan saat impor. API telah diperiksa dari `rgmp_stream.py`, `rgmp_client_example.py`, serta `rgmp_core/{client,frame,layout,definition}.py` yang terpasang. Modul parser ini hanya memerlukan Python standard library.
+## Urutan penggunaan
 
-## Menghubungkan
+1. Periksa SDK folder dan Project folder; isi SSID, password, dan port, lalu **Save**.
+2. Klik **Start** pada SDK Driver dan hubungkan Smartgloves via USB. Script konfigurasi membutuhkan driver RCSP lokal (default `localhost:45451`) dan memilih perangkat pertama yang dilaporkan SDK.
+3. Klik **Set Wi-Fi**, kemudian **Verify (Get)**. Berhasil menyimpan konfigurasi belum membuktikan perangkat sudah terhubung ke access point.
+4. Jalankan Solver dan Viewer, atau gunakan **Start Pipeline** untuk menjalankan Driver, Solver, Viewer secara berurutan. Tahan tangan kanan terbuka dan stabil selama kalibrasi viewer.
+5. Gunakan **Stop All** untuk menghentikan proses yang dibuat GUI. Proses eksternal tidak dihentikan.
 
-1. Jalankan SDK Driver secara manual di terminal terpisah. Untuk joint hasil solver, jalankan juga Hand Solver secara manual sesuai konfigurasi SDK Anda.
-2. Isi Host `127.0.0.1` untuk server lokal, atau IP/hostname server lain.
-3. Gunakan port **12276** untuk stream sensor mentah dari SDK Driver, atau **12277** untuk joint hasil Hand Solver. Server terkait harus sudah mendengarkan port tersebut.
-4. Klik **Connect**. Klik **Disconnect** untuk menutup hanya koneksi pembaca GUI. Sambungkan ulang jika ingin mengganti host/port.
+Port yang diterapkan ke perintah SDK:
 
-Status `Connecting` berarti percobaan koneksi sedang berjalan. `Connected` berarti TCP tersambung. **Streaming hanya ditampilkan setelah frame DATA yang sesuai definition dan berhasil didekode diterima**; definition saja atau byte sembarang tidak dihitung. Sesudah 3 detik tanpa data valid, status menjadi `Connected — No Data`; koneksi tetap terbuka dan otomatis kembali `Streaming` jika data valid masuk. `Error` menunjukkan koneksi ditolak, timeout, koneksi hilang, atau kesalahan protokol; penyebab ditampilkan di log. Setelah error, gunakan Connect untuk mencoba lagi.
+| Pengaturan | Default | Penggunaan |
+| --- | --- | --- |
+| Receiver port | 14041 | UDP perangkat ke Driver (`--driver-udp-port`) dan konfigurasi Wi-Fi |
+| Driver RGMP | 12276 | TCP Driver (`--rgmp-output-addr`) ke Solver |
+| Solver output | 12277 | TCP Solver ke Viewer; `--emit both` menyertakan `joints_world` |
 
-Penghitung adalah jumlah frame DATA valid, bukan jumlah stream di dalam frame atau jumlah definition. Timestamp terakhir mencantumkan waktu penerimaan lokal dan timestamp RGMP asli dalam mikrodetik, tanpa mengasumsikan epoch server.
+GUI menghindari duplikasi Driver/Solver berdasarkan nama executable Windows. Status `External` tidak memeriksa kesesuaian port proses tersebut. `Running` hanya berarti proses aktif; Start Pipeline memakai jeda antarproses dan belum memverifikasi frame sensor. Stop All membatalkan peluncuran yang masih terjadwal.
 
-## Cara kerja dan batasan
+`rgmp_client.py`, pipeline real-time, dan analisis offline tetap tersedia. Viewer menampilkan retargeting kinematik, tanpa estimasi gaya atau aktivasi otot.
 
-- `main.py`: widget Tkinter, queue, dan polling `after()` pada thread GUI.
-- `rgmp_client.py`: worker TCP, adaptor `RgmpClient` resmi, serta decoding slot melalui `rgmp_core.layout.read_slot`. Framing biner memakai header `<II>` dan data header `<IIQ>` resmi, bukan newline.
-- `config.py`: host/port default, lokasi SDK, timeout koneksi 3 detik dan polling socket 250 ms.
-- Disconnect memberi sinyal ke worker; socket ditutup oleh worker. Penutupan jendela menunggu worker melalui `after()` tanpa memblokir GUI. Percobaan koneksi yang sedang berlangsung dapat memerlukan waktu sampai timeout; resolusi DNS mengikuti resolver OS.
-- Potongan frame tetap disimpan saat timeout baca, sehingga fragmentasi TCP tidak merusak framing. Definition dan layout dipisahkan per perangkat oleh parser resmi.
-- Log data dibatasi sekitar sekali per detik, tampilan penghitung sekitar 10 kali per detik, log maksimal sekitar 500 baris, dan queue dibatasi untuk menjaga GUI responsif. Semua frame valid tetap dihitung.
-- Untuk penelitian lanjutan, `RGMPClient(on_data=callback)` meneruskan setiap frame terdekode berisi identitas perangkat/grup, timestamp, metadata stream, dan tuple nilai. Callback berjalan di worker: harus cepat dan tidak memanggil Tkinter. `Recording.add_rgmp_message(message)` menerima bentuk ini; GUI belum menjalankan retargeting.
-
-Pemeriksaan syntax tanpa menjalankan GUI:
+Pemeriksaan tanpa perangkat:
 
 ```powershell
-.\.venv\Scripts\python.exe -m py_compile main.py rgmp_client.py config.py
+.\.venv\Scripts\python.exe -m py_compile main.py rokoko_control_gui.py sdk_network_runner.py
+.\.venv\Scripts\python.exe -m unittest discover -s tests -v
 ```
 
 ## Analisis offline Hand Solver
