@@ -108,7 +108,14 @@ def run(args) -> int:
                     if last_metrics is not None:
                         print(f"IK tip mean={last_metrics['tip_mean_error_mm']:.1f} mm, "
                               f"latency={last_metrics['latency_ms']:.1f} ms, "
-                              f"optimizer_success={last_metrics['optimizer_success']}", flush=True)
+                              f"ik_compute_ms={last_metrics['ik_compute_ms']:.2f}, "
+                              f"optimizer_success={last_metrics['optimizer_success']}, "
+                              f"status={last_metrics['optimizer_status']}, "
+                              f"nfev={last_metrics['optimizer_nfev']}, "
+                              f"njev={last_metrics['optimizer_njev']}, "
+                              f"cost={last_metrics['optimizer_cost']:.6g}, "
+                              f"optimality={last_metrics['optimizer_optimality']:.3g}, "
+                              f"message={last_metrics['optimizer_message']}", flush=True)
                     next_report = now + 1
                 time.sleep(1 / args.viewer_fps)
     except KeyboardInterrupt:
@@ -131,7 +138,7 @@ def main() -> int:
     parser.add_argument("--device-id", type=int, help="Pilih satu device RGMP jika ada beberapa")
     parser.add_argument("--neutral-window", type=float, default=0.5, help="Detik tangan terbuka stabil")
     parser.add_argument("--stability-mm", type=float, default=5.0, help="Ambang p95 stabilitas landmark")
-    parser.add_argument("--max-ik-evaluations", type=int, default=12)
+    parser.add_argument("--max-ik-evaluations", type=int, default=20)
     parser.add_argument("--tip-weight", type=float, default=2.0)
     parser.add_argument("--viewer-fps", type=float, default=30.0)
     parser.add_argument("--headless", action="store_true", help="Jalankan tanpa viewer untuk pemeriksaan")

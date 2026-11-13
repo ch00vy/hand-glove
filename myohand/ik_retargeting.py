@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import json
+import time
 from dataclasses import dataclass
 from pathlib import Path
 
@@ -173,12 +174,21 @@ class KinematicFitter:
             return np.vstack((self._jacobian() * np.repeat(self.marker_weights, 3)[:, None],
                               self.temporal_weight_m * np.eye(len(x)),
                               self.neutral_weight_m * np.eye(len(x))))
+        started = time.perf_counter()
         result = least_squares(residual, previous, jac=jacobian, bounds=(self.lower, self.upper),
                                max_nfev=max_evaluations, ftol=1e-8, xtol=1e-8, gtol=1e-9)
+        ik_compute_ms = (time.perf_counter() - started) * 1000
         fitted = self.evaluate(result.x)
         error = np.linalg.norm(fitted - target, axis=1)
-        return result.x, error, {"success": bool(result.success), "nfev": int(result.nfev),
-                                "cost": float(result.cost)}
+        return result.x, error, {
+            "success": bool(result.success), "status": int(result.status),
+            "message": str(result.message), "nfev": int(result.nfev),
+            "njev": int(result.njev) if result.njev is not None else None,
+            "cost": float(result.cost), "optimality": float(result.optimality),
+            # Only least_squares, including its residual/Jacobian calls; excludes
+            # target construction, final error computation, queues and rendering.
+            "ik_compute_ms": ik_compute_ms,
+        }
 
     def full_qpos(self, finger_qpos: np.ndarray) -> np.ndarray:
         output = self.default_qpos.copy()

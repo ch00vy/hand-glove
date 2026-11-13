@@ -142,3 +142,28 @@ Pengujian tanpa Smartgloves menggunakan server TCP RGMP v2 sintetis dan model My
 ```powershell
 .\.venv\Scripts\python.exe -m unittest real_time.test_pipeline -v
 ```
+
+## Benchmark diagnostik optimizer IK
+
+Jalankan offline dengan Python 3.12 dari virtual environment proyek:
+
+```powershell
+.\.venv\Scripts\python.exe scripts\benchmark_ik.py --input recordings\solved_hand.csv --max-nfev 8 12 20 30
+```
+
+Script memakai parser, registrasi netral, model, dan `KinematicFitter` yang sama dengan retargeting yang sudah ada. Seluruh frame diurutkan menurut timestamp lalu dioptimalkan, tanpa antrean streaming, dropped frames, atau interpolasi. Target dibuat sekali untuk semua skenario. Kalibrasi memakai mean posisi hand-relative pada 0–0,5 detik seperti script offline `retarget_recording.py`; ini bukan detektor jendela stabil otomatis pipeline live. Interval netral harus berisi tangan terbuka. Pilihan `--neutral-end`, `--model`, `--landmarks`, `--tip-weight`, `--temporal-weight`, dan `--neutral-weight` diterapkan identik ke seluruh skenario.
+
+Setiap skenario memperoleh fitter baru dengan pose awal default yang sama. Di dalam skenario, solusi frame sebelumnya menjadi warm start frame berikutnya, sama seperti pipeline live. Karena solusi sebelumnya dapat berbeda antarbudget, nilai warm start frame lanjut juga dapat berbeda; aturan warm start dan kondisi awal skenario tetap identik. Tiga frame warm-up dengan budget 12 dijalankan identik sebelum tiap skenario, kemudian fitter direset; warm-up tidak masuk statistik. Hanya `max_nfev` eksperimen yang berubah. Objective, Jacobian analitik, bounds, dan toleransi `ftol=1e-8`, `xtol=1e-8`, `gtol=1e-9` dipertahankan.
+
+Hasil tersimpan di `outputs/ik_benchmark/`:
+
+- `benchmark_summary.csv`: mean/P95 error, persentase sukses dan batas evaluasi, mean nfev, mean/median/P95 compute time, dan effective IK FPS.
+- `benchmark_per_frame.csv`: indeks/timestamp, error rata-rata dan masing-masing fingertip, `optimizer_success`, `optimizer_status`, `optimizer_message`, `optimizer_nfev`, `optimizer_njev`, `optimizer_cost`, `optimizer_optimality`, dan `ik_compute_ms`.
+- `ik_error_comparison.png`, `ik_compute_time_comparison.png`, `optimizer_success_comparison.png`.
+- `benchmark_metadata.json`: parameter, versi library, hash input/target/konfigurasi landmark, kalibrasi, pose awal, serta definisi metrik untuk penelusuran eksperimen.
+
+Error per frame adalah mean lima jarak Euclidean fingertip terhadap target yang sudah diregistrasi dan diskalakan. Mean dan P95 pada summary dihitung atas nilai per-frame tersebut, termasuk frame netral; P95 bukan persentil gabungan semua pengukuran tip. Error ini mengukur kecocokan target kinematik, bukan ground truth anatomis. `optimizer_success=True` berarti solver memenuhi salah satu kriteria penghentian (`status > 0`), sedangkan `status=0` berarti batas evaluasi tercapai. Konvergensi tidak menjamin error fingertip kecil; cost juga mencakup bobot landmark dan regularisasi.
+
+`ik_compute_ms` mengukur hanya pemanggilan `least_squares`, termasuk residual dan Jacobian. Pengukuran ini mengecualikan parsing, kalibrasi, pembuatan target, evaluasi error akhir, logging, dan rendering. Effective IK FPS = `1000 / mean(ik_compute_ms)`: **estimasi kapasitas komputasi offline, bukan FPS streaming end-to-end**. Waktu berasal dari satu lintasan per skenario dan dipengaruhi beban CPU serta urutan skenario; perbedaan waktu kecil perlu diuji ulang sebelum dianggap signifikan.
+
+Pada pipeline live, `latency_ms` tetap berarti waktu sejak callback RGMP sampai pose selesai, termasuk waktu tunggu antrean dan pemrosesan. Callback dan penyelesaian pose memakai `perf_counter` untuk presisi durasi pendek di Windows; pelacakan usia frame tetap memakai `monotonic`. Diagnostik optimizer diteruskan melalui antrean pose tanpa mengubah strategi latest-frame. Script real-time mencatat diagnostik pose terbaru sekitar sekali per detik; CSV benchmark menyimpan setiap frame offline.

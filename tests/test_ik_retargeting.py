@@ -46,6 +46,19 @@ class RegistrationTests(unittest.TestCase):
         solution, error, status = fitter.fit(target, fitter.default_qpos[fitter.qadr], 40)
         self.assertLess(float(np.mean(error)), 0.001)
         self.assertLess(abs(solution[target_index] - 0.5), 0.02)
+        self.assertTrue(status["success"])
+        self.assertGreater(status["status"], 0)
+        self.assertIsInstance(status["message"], str)
+        self.assertGreater(status["nfev"], 0)
+        self.assertGreater(status["njev"], 0)
+        self.assertGreaterEqual(status["cost"], 0)
+        self.assertGreaterEqual(status["optimality"], 0)
+        self.assertGreater(status["ik_compute_ms"], 0)
+        _, _, limited = fitter.fit(target, fitter.default_qpos[fitter.qadr], 1)
+        self.assertFalse(limited["success"])
+        self.assertEqual(limited["status"], 0)
+        self.assertEqual(limited["nfev"], 1)
+        self.assertIn("maximum number", limited["message"].lower())
 
 
 if __name__ == "__main__":

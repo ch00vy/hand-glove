@@ -33,7 +33,7 @@ def put_latest(destination: queue.Queue, item) -> bool:
 class LiveRetargeter:
     def __init__(self, model, reference_body: int, landmarks, *, device_id: int | None = None,
                  neutral_window_s: float = 0.5, stable_p95_mm: float = 5.0,
-                 min_neutral_frames: int = 15, max_ik_evaluations: int = 12,
+                 min_neutral_frames: int = 15, max_ik_evaluations: int = 20,
                  tip_weight: float = 2.0):
         if neutral_window_s <= 0 or stable_p95_mm <= 0 or min_neutral_frames < 2 or max_ik_evaluations < 1:
             raise ValueError("Parameter kalibrasi/IK tidak valid")
@@ -84,9 +84,10 @@ class LiveRetargeter:
             self.events.put(("device", f"Memilih device RGMP {device}"))
         if device != self._selected_device:
             return
+        arrival = time.perf_counter()
         self.received_world += 1
         self.last_input_monotonic = time.monotonic()
-        if put_latest(self.incoming, (message, self.last_input_monotonic)):
+        if put_latest(self.incoming, (message, arrival)):
             self.dropped_input += 1
 
     def _decode_points(self, message: dict):
@@ -170,12 +171,17 @@ class LiveRetargeter:
                 self.stop_event.set()
                 return
             self.solved += 1
+            # perf_counter avoids coarse monotonic ticks on some Windows/Python
+            # versions; age/status bookkeeping still uses monotonic as before.
+            latency_ms = (time.perf_counter() - arrival) * 1000
             self.last_solved_monotonic = time.monotonic()
             self.last_timestamp_us = ts
             put_latest(self.poses, {
                 "qpos": qpos, "timestamp_us": ts, "device_id": self._selected_device,
                 "tip_mean_error_mm": float(np.mean(error[tip_ids]) * 1000),
                 "all_mean_error_mm": float(np.mean(error) * 1000),
-                "latency_ms": (self.last_solved_monotonic - arrival) * 1000,
-                "optimizer_success": info["success"],
+                "latency_ms": latency_ms,
+                "ik_compute_ms": info["ik_compute_ms"],
+                **{f"optimizer_{key}": info[key] for key in
+                   ("success", "status", "message", "nfev", "njev", "cost", "optimality")},
             })
