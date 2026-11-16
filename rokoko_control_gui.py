@@ -260,7 +260,9 @@ class App:
         if key=='solver':
             return [solver,'--no-driver','--rgmp-addr',f'127.0.0.1:{self.validate_port(self.driver_port.get())}',
                     '--listen',f'127.0.0.1:{self.validate_port(self.solver_port.get())}','--emit','both'],str(sdk),solver
-        return [python,'-u',script,'--host','127.0.0.1','--port',str(self.validate_port(self.solver_port.get()))],str(proj),script
+        return [python,'-u',script,'--host','127.0.0.1','--port',str(self.validate_port(self.solver_port.get())),
+                '--wrist-mode','forearm-twist',
+                '--wrist-log',str(proj/'outputs/wrist_evaluation/live_metrics.csv')],str(proj),script
 
     def external_running(self,exe_name):
         """Best-effort name-based check. Do not mistake this for guaranteed port ownership."""

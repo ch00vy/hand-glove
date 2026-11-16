@@ -42,6 +42,9 @@ class ControlCenterTests(unittest.TestCase):
         self.assertEqual(solver[solver.index('--listen') + 1], '127.0.0.1:12377')
         self.assertEqual(solver[solver.index('--emit') + 1], 'both')
         self.assertEqual(viewer[viewer.index('--port') + 1], '12377')
+        self.assertEqual(viewer[viewer.index('--wrist-mode') + 1], 'forearm-twist')
+        self.assertEqual(Path(viewer[viewer.index('--wrist-log') + 1]),
+                         PROJECT / 'outputs/wrist_evaluation/live_metrics.csv')
 
     def test_invalid_port_is_rejected_before_launch(self):
         for invalid in ('0', '65536', 'abc'):

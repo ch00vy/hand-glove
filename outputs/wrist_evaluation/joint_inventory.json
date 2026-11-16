@@ -1,0 +1,131 @@
+{
+  "model_path": "C:\\hand-glove\\.venv\\Lib\\site-packages\\myosuite\\simhive\\myo_sim\\hand\\myohand.xml",
+  "rotation_order": "ancestor bodies first; joints on the same body follow compiled joint order",
+  "joints": [
+    {
+      "name": "pro_sup",
+      "type": "hinge",
+      "axis": [
+        -0.01716099384176988,
+        0.9926656437815011,
+        -0.11966795705710145
+      ],
+      "range": [
+        -1.5708,
+        1.5708
+      ],
+      "qpos_address": 0,
+      "qvel_address": 0,
+      "dof": 1,
+      "default_qpos": 0.0,
+      "body": "radius",
+      "parent_body": "ulna",
+      "range_deg": [
+        -90.00021045914971,
+        90.00021045914971
+      ],
+      "world_axis_at_default": [
+        0.11887742231546149,
+        0.9927606237951018,
+        -0.017161069476915633
+      ],
+      "body_chain": [
+        "full_body",
+        "thorax",
+        "clavicle",
+        "clavphant",
+        "scapula",
+        "scapphant",
+        "humphant",
+        "humphant1",
+        "humerus",
+        "ulna",
+        "radius"
+      ]
+    },
+    {
+      "name": "deviation",
+      "type": "hinge",
+      "axis": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "range": [
+        -0.174533,
+        0.436332
+      ],
+      "qpos_address": 1,
+      "qvel_address": 1,
+      "dof": 1,
+      "default_qpos": 0.0,
+      "body": "lunate",
+      "parent_body": "radius",
+      "range_deg": [
+        -10.000004285756797,
+        24.999982066502238
+      ],
+      "world_axis_at_default": [
+        -0.9999996829318348,
+        -0.0007963264582434321,
+        6.341362299711051e-07
+      ],
+      "body_chain": [
+        "full_body",
+        "thorax",
+        "clavicle",
+        "clavphant",
+        "scapula",
+        "scapphant",
+        "humphant",
+        "humphant1",
+        "humerus",
+        "ulna",
+        "radius",
+        "lunate"
+      ]
+    },
+    {
+      "name": "flexion",
+      "type": "hinge",
+      "axis": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "range": [
+        -0.785398,
+        0.785398
+      ],
+      "qpos_address": 2,
+      "qvel_address": 2,
+      "dof": 1,
+      "default_qpos": 0.0,
+      "body": "lunate",
+      "parent_body": "radius",
+      "range_deg": [
+        -44.99999063801583,
+        44.99999063801583
+      ],
+      "world_axis_at_default": [
+        6.341362299711051e-07,
+        2.5248976916409163e-10,
+        0.9999999999997992
+      ],
+      "body_chain": [
+        "full_body",
+        "thorax",
+        "clavicle",
+        "clavphant",
+        "scapula",
+        "scapphant",
+        "humphant",
+        "humphant1",
+        "humerus",
+        "ulna",
+        "radius",
+        "lunate"
+      ]
+    }
+  ]
+}

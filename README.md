@@ -133,15 +133,38 @@ MuJoCo viewer akan menampilkan pose `qpos` hasil IK secara langsung. Tutup viewe
 
 Pipeline real-time berada di `real_time/`. Callback RGMP resmi hanya memasukkan data ke antrean berukuran satu; worker lain mem-parsing `joints_world`, mengkalibrasi pose netral, dan menjalankan IK. Frame lama dibuang bila input lebih cepat daripada IK agar latensi tidak terus bertambah. Viewer menggunakan pose terbaru di thread utama. Status setiap detik di terminal menampilkan jumlah frame world, frame yang di-fit, frame yang dibuang, data tidak valid, usia frame terakhir, galat fingertip, dan latensi pemrosesan. `Connected` pada RGMP sendiri belum berarti retargeting aktif; tunggu pesan `Kalibrasi netral selesai; retargeting aktif`.
 
-Kalibrasi live menghitung posisi 24 landmark relatif terhadap `right_hand`, lalu menunggu jendela 0,5 detik dengan deviasi posisi p95 di bawah 5 mm. Pose yang stabil tetapi **tertutup** masih dapat diterima oleh detektor; operator harus memastikan tangan terbuka. Titik world diregistrasi ke model myoHand memakai metode yang sama dengan analisis offline. Pergelangan tetap pada pose default model dan tidak ada estimasi kontak, gaya, atau aktivasi otot. Bila `joints_world` berhenti tiba, model menahan pose terakhir sampai data baru atau koneksi ditutup.
+Kalibrasi live menghitung posisi 24 landmark relatif terhadap `right_hand`, lalu menunggu jendela 0,5 detik dengan deviasi posisi p95 di bawah 5 mm. Pose yang stabil tetapi **tertutup** masih dapat diterima oleh detektor; operator harus memastikan tangan terbuka. Titik world diregistrasi ke model myoHand memakai metode yang sama dengan analisis offline. Wrist relatif kini di-fit secara terpisah; lihat prosedur wrist di bawah. Tidak ada estimasi kontak, gaya, atau aktivasi otot. Bila `joints_world` berhenti tiba, model menahan pose terakhir sampai data baru atau koneksi ditutup.
 
-Parameter `--max-ik-evaluations` (default 12), `--viewer-fps` (default 30), `--neutral-window`, `--stability-mm`, dan `--tip-weight` dapat disesuaikan. Menaikkan iterasi dapat memperbaiki fit tetapi menambah latensi dan jumlah frame yang dibuang. Kinerja nyata bergantung pada CPU, laju SDK, dan viewer. Dalam replay rekaman sekitar 83 Hz pada lingkungan ini, kalibrasi berhasil, IK menyelesaikan 117 dari 155 frame yang diterima (frame awal untuk kalibrasi), 5 frame lama dibuang, dan contoh latensi terakhir sekitar 16 ms. Ini bukan pengukuran pada perangkat langsung.
+Parameter `--max-ik-evaluations` (default 20), `--viewer-fps` (default 30), `--neutral-window`, `--stability-mm`, dan `--tip-weight` dapat disesuaikan. Menaikkan iterasi dapat memperbaiki fit tetapi menambah latensi dan jumlah frame yang dibuang. Kinerja nyata bergantung pada CPU, laju SDK, dan viewer. Dalam replay finger-only sebelumnya sekitar 83 Hz pada lingkungan ini, kalibrasi berhasil, IK menyelesaikan 117 dari 155 frame yang diterima (frame awal untuk kalibrasi), 5 frame lama dibuang, dan contoh latensi terakhir sekitar 16 ms. Ini bukan pengukuran pada perangkat langsung maupun benchmark wrist baru.
 
 Pengujian tanpa Smartgloves menggunakan server TCP RGMP v2 sintetis dan model MyoSuite yang terpasang:
 
 ```powershell
 .\.venv\Scripts\python.exe -m unittest real_time.test_pipeline -v
 ```
+
+## Wrist dan forearm real-time
+
+Modul baru `myohand/wrist_retargeting.py` menambahkan fit orientasi terpisah dari
+Finger IK. Default `--wrist-mode relative` mengikuti wrist flexion/extension dan
+radial/ulnar deviation; untuk mencoba pronasi/supinasi gunakan:
+
+```powershell
+.\.venv\Scripts\python.exe real_time\run_retargeting.py --port 12277 --wrist-mode forearm-twist
+```
+
+Mode `forearm-twist` memakai estimasi twist forearm dari orientasi netral, yang
+masih bisa tercampur gerakan bahu/siku karena tidak ada referensi upper arm.
+Tombol retargeting pada GUI memilih mode ini secara eksplisit dan menyimpan
+diagnostik input/output ke `outputs/wrist_evaluation/live_metrics.csv`.
+Tahan tangan terbuka, wrist lurus, forearm horizontal dan ibu jari menghadap atas
+selama kalibrasi. Tekan **R** di viewer untuk kalibrasi ulang wrist tanpa
+mengulang kalibrasi jari. Kalibrasi tersimpan di
+`outputs/wrist_evaluation/neutral.json`. Gunakan `--wrist-mode off` untuk finger-only.
+
+Konfigurasi sumbu/range/qpos/qvel dari API MuJoCo, formula konversi koordinat,
+definisi metrik, hasil test sintetis dan tujuh skenario uji manual dijelaskan di
+[panduan evaluasi wrist](outputs/wrist_evaluation/README.md). Hardware belum diuji.
 
 ## Benchmark diagnostik optimizer IK
 

@@ -1,10 +1,12 @@
 """Hardware-free live RGMP/TCP integration checks."""
 
 import contextlib
+import csv
 import io
 import queue
 import socket
 import threading
+import tempfile
 import time
 import unittest
 from pathlib import Path
@@ -128,12 +130,15 @@ class LiveTests(unittest.TestCase):
         mujoco.mj_forward(model, data)
         points = model_points(model, data, reference, landmarks)
         streams = [{"target_frame": "right_hand", "reference_frame": "LTP_NED",
+                    "measure_type": "TRANSFORM", "data_type": "FLOAT[7]"},
+                   {"target_frame": "right_fore_arm", "reference_frame": "LTP_NED",
                     "measure_type": "TRANSFORM", "data_type": "FLOAT[7]"}]
         streams += [{"target_frame": landmark.rokoko, "reference_frame": "LTP_NED",
                      "measure_type": "TRANSFORM", "data_type": "FLOAT[7]"}
                     for landmark in landmarks]
         definition = {"device_id": 9, "groups": [{"name": "joints_world", "streams": streams}]}
         payload = bytearray(framing.pack_transform((0, 0, 0), (0, 0, 0, 1)))
+        payload.extend(framing.pack_transform((0, 0, 0), (0, 0, 0, 1)))
         for point in points:
             payload.extend(framing.pack_transform(tuple(point), (0, 0, 0, 1)))
         listener = socket.socket()
@@ -166,8 +171,18 @@ class LiveTests(unittest.TestCase):
                                max_ik_evaluations=12, tip_weight=2.0, viewer_fps=30.0,
                                headless=True, duration=1.6)
         output = io.StringIO()
-        with contextlib.redirect_stdout(output):
-            code = run(args)
+        with tempfile.TemporaryDirectory() as folder:
+            args.wrist_mode = 'forearm-twist'
+            args.wrist_log = str(Path(folder) / 'wrist.csv')
+            with contextlib.redirect_stdout(output):
+                code = run(args)
+            with Path(args.wrist_log).open(newline='', encoding='utf-8') as handle:
+                rows = list(csv.DictReader(handle))
+            self.assertGreater(len(rows), 0)
+            self.assertTrue(all(row['wrist_mode'] == 'forearm-twist' for row in rows))
+            self.assertTrue(all(row['wrist_sync_status'] == 'same_world_message' for row in rows))
+            self.assertTrue(all(row['wrist_input_deviation_component_deg'] != '' for row in rows))
+            self.assertEqual(len({row['session_id'] for row in rows}), 1)
         server.join(3)
         self.assertEqual(code, 0, output.getvalue())
         self.assertIn("retargeting aktif", output.getvalue())

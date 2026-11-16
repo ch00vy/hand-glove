@@ -1,0 +1,31 @@
+{
+  "source": "recordings/solved_hand.csv",
+  "kind": "offline replay, not a new hardware trial",
+  "frames": 2073,
+  "mode": "forearm-twist",
+  "pro_sup_angle_deg": {
+    "min": -0.43883126086007573,
+    "max": 10.864588661915793,
+    "mean": 4.994528630504262
+  },
+  "deviation_angle_deg": {
+    "min": -10.000004285756795,
+    "max": 0.616585181533041,
+    "mean": -8.2060409493521
+  },
+  "flexion_angle_deg": {
+    "min": -17.571166366161428,
+    "max": 0.5776084396379784,
+    "mean": -9.90120887703415
+  },
+  "wrist_input_deviation_component_deg": {
+    "min": -19.424672654553326,
+    "max": 0.6162906001044183,
+    "mean": -11.356288447701605
+  },
+  "wrist_orientation_error_deg": {
+    "min": 0.0007785715801619125,
+    "max": 10.263210331822233,
+    "mean": 5.542625656637132
+  }
+}
